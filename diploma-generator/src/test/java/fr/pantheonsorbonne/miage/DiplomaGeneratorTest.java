@@ -25,7 +25,7 @@ import org.junit.jupiter.api.Test;
 
 import com.google.common.io.ByteStreams;
 
-public class DiplomaGeneratorTest {
+ class DiplomaGeneratorTest {
 
 	static protected Date currentDate;
 	{
@@ -74,7 +74,7 @@ public class DiplomaGeneratorTest {
 		ByteStreams.copy(generatedImageReader, generatedImageData);
 	}
 
-	protected File generateDiplomaForStudent(Student stu, Date date) throws IOException, FileNotFoundException {
+	protected File generateDiplomaForStudent(Student stu, Date date) throws IOException, FileNotFoundException, GenerationException, DiplomaException {
 		ByteArrayOutputStream generatedFileContent = new ByteArrayOutputStream();
 		File generatedFileTarget = Files.createTempFile("prefix_", "_suffic").toFile();
 		MiageDiplomaGenerator generator = new MiageDiplomaGenerator(stu, date);
